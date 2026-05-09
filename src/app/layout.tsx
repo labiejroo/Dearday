@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import StyledComponentsRegistry from './registry';
 import { meta } from '@/copy';
 
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         />
-        <script type="module" src="https://widgets.prod.cleeng.com/cleeng.js"></script>
+        <Script src="https://widgets.prod.cleeng.com/cleeng.js" strategy="lazyOnload" />
       </head>
       <body>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
