@@ -1,11 +1,6 @@
-'use client';
-
 import styled from 'styled-components';
-import Reveal from './Reveal';
-import { Wrap, Section, SectionHead, Eyebrow } from './shared';
-import { affirmations as c } from '@/copy';
 
-const Grid = styled.div`
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 36px;
@@ -17,7 +12,7 @@ const Grid = styled.div`
   }
 `;
 
-const JCard = styled.article<{ $i: number }>`
+export const JCard = styled.article<{ $i: number }>`
   background: var(--paper-white);
   border-radius: 8px;
   padding: 32px 30px 36px;
@@ -56,7 +51,7 @@ const JCard = styled.article<{ $i: number }>`
   }
 `;
 
-const Washi = styled.span<{ $i: number }>`
+export const Washi = styled.span<{ $i: number }>`
   position: absolute;
   top: -12px;
   left: 50%;
@@ -80,7 +75,7 @@ const Washi = styled.span<{ $i: number }>`
      background: rgba(143,168,180,.55);`}
 `;
 
-const Date = styled.div`
+export const DateLabel = styled.div`
   font-family: var(--hand);
   color: var(--ink-faint);
   font-size: 22px;
@@ -90,7 +85,7 @@ const Date = styled.div`
   align-items: baseline;
 `;
 
-const Aff = styled.p`
+export const Aff = styled.p`
   font-family: var(--serif);
   font-style: italic;
   font-size: 24px;
@@ -109,7 +104,7 @@ const Aff = styled.p`
   }
 `;
 
-const Qs = styled.ol<{ $i: number }>`
+export const Qs = styled.ol<{ $i: number }>`
   counter-reset: q;
   list-style: none;
   border-top: 1px dashed rgba(31, 53, 64, 0.15);
@@ -147,7 +142,7 @@ const Qs = styled.ol<{ $i: number }>`
   }
 `;
 
-const Corner = styled.span`
+export const Corner = styled.span`
   position: absolute;
   bottom: 14px;
   right: 18px;
@@ -156,43 +151,3 @@ const Corner = styled.span`
   font-size: 18px;
   opacity: 0.5;
 `;
-
-
-export default function Affirmations() {
-  return (
-    <Section id="examples" style={{ paddingTop: 60 }}>
-      <Wrap>
-        <Reveal>
-          <SectionHead>
-            <Eyebrow>{c.eyebrow}</Eyebrow>
-            <h2>{c.h2}</h2>
-            <p>{c.p}</p>
-          </SectionHead>
-        </Reveal>
-
-        <Grid>
-          {c.cards.map((d, i) => (
-            <Reveal key={i}>
-              <JCard $i={i}>
-                <Washi $i={i} />
-                <Date>
-                  <span>{d.date}</span>
-                  <span style={{ color: d.icon.color }}>
-                    <i className={d.icon.c} />
-                  </span>
-                </Date>
-                <Aff>{d.aff}</Aff>
-                <Qs $i={i}>
-                  {d.qs.map((q, j) => (
-                    <li key={j}>{q}</li>
-                  ))}
-                </Qs>
-                <Corner>{c.dayLabel} {d.day}</Corner>
-              </JCard>
-            </Reveal>
-          ))}
-        </Grid>
-      </Wrap>
-    </Section>
-  );
-}

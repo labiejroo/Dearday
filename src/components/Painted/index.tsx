@@ -1,6 +1,6 @@
 'use client';
 
-import styled from 'styled-components';
+import { WaveSvg } from './styles';
 
 /* ---------- Painted Sun ---------- */
 export function PaintedSun({
@@ -85,12 +85,6 @@ export function PaintedPalm({
 }
 
 /* ---------- Painted Wave ---------- */
-const WaveSvg = styled.svg`
-  position: absolute;
-  pointer-events: none;
-  user-select: none;
-`;
-
 export function PaintedWave({
   variant = 'ocean',
   style,

@@ -1,12 +1,6 @@
-'use client';
-
 import styled from 'styled-components';
-import Reveal from './Reveal';
-import { Wrap, Section, SectionHead, Eyebrow } from './shared';
-import { PaintedPalm } from './Painted';
-import { howItWorks as c } from '@/copy';
 
-const Steps = styled.div`
+export const Steps = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
@@ -17,7 +11,7 @@ const Steps = styled.div`
   }
 `;
 
-const Step = styled.div<{ $i: number }>`
+export const Step = styled.div<{ $i: number }>`
   text-align: center;
   padding: 32px 24px;
   position: relative;
@@ -77,46 +71,3 @@ const Step = styled.div<{ $i: number }>`
     }
   }
 `;
-
-export default function HowItWorks() {
-  return (
-    <Section id="how">
-      <PaintedPalm
-        className="painted"
-        style={{
-          top: 60,
-          left: -60,
-          width: 240,
-          height: 240,
-          transform: 'rotate(-15deg)',
-          opacity: 0.28,
-        }}
-      />
-      <Wrap>
-        <Reveal>
-          <SectionHead>
-            <Eyebrow>{c.eyebrow}</Eyebrow>
-            <h2>{c.h2}</h2>
-            <p>{c.p}</p>
-          </SectionHead>
-        </Reveal>
-
-        <Steps>
-          {c.steps.map((s, i) => (
-            <Reveal key={i}>
-              <Step $i={i}>
-                <div className="icon">
-                  <i className={s.icon} />
-                </div>
-                <span className="num">{i + 1}</span>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-                {i < 2 && <span className="arrow">~~&gt;</span>}
-              </Step>
-            </Reveal>
-          ))}
-        </Steps>
-      </Wrap>
-    </Section>
-  );
-}

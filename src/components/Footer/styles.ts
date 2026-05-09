@@ -1,10 +1,6 @@
-'use client';
-
 import styled from 'styled-components';
-import { Wrap } from './shared';
-import { footer as c } from '@/copy';
 
-const Foot = styled.footer`
+export const Foot = styled.footer`
   background: var(--paper-deep);
   padding: 72px 0 32px;
   border-top: 1px solid rgba(31, 53, 64, 0.08);
@@ -12,7 +8,7 @@ const Foot = styled.footer`
   z-index: 2;
 `;
 
-const Grid = styled.div`
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 48px;
@@ -26,7 +22,7 @@ const Grid = styled.div`
   }
 `;
 
-const Logo = styled.a`
+export const Logo = styled.a`
   font-family: var(--serif);
   font-size: 28px;
   font-weight: 500;
@@ -43,7 +39,7 @@ const Logo = styled.a`
   }
 `;
 
-const Brand = styled.div`
+export const Brand = styled.div`
   p {
     color: var(--ink-soft);
     font-size: 14.5px;
@@ -53,7 +49,7 @@ const Brand = styled.div`
   }
 `;
 
-const Col = styled.div`
+export const Col = styled.div`
   h4 {
     font-family: var(--sans);
     font-size: 13px;
@@ -79,7 +75,7 @@ const Col = styled.div`
   }
 `;
 
-const Socials = styled.div`
+export const Socials = styled.div`
   display: flex;
   gap: 10px;
   margin-top: 18px;
@@ -101,7 +97,7 @@ const Socials = styled.div`
   }
 `;
 
-const Bottom = styled.div`
+export const Bottom = styled.div`
   border-top: 1px solid rgba(31, 53, 64, 0.1);
   padding-top: 24px;
   display: flex;
@@ -112,56 +108,3 @@ const Bottom = styled.div`
   color: var(--ink-faint);
   flex-wrap: wrap;
 `;
-
-export default function Footer() {
-  return (
-    <Foot>
-      <Wrap>
-        <Grid>
-          <Brand>
-            <Logo href="#">
-              Dearday<span />
-            </Logo>
-            <p>{c.brand}</p>
-            <Socials>
-              <a href="#" aria-label="Instagram"><i className="fa-brands fa-instagram" /></a>
-              <a href="#" aria-label="TikTok"><i className="fa-brands fa-tiktok" /></a>
-              <a href="#" aria-label="Facebook"><i className="fa-brands fa-facebook-f" /></a>
-              <a href="#" aria-label="Spotify"><i className="fa-brands fa-spotify" /></a>
-            </Socials>
-          </Brand>
-          <Col>
-            <h4>{c.product.label}</h4>
-            <ul>
-              {c.product.links.map((l) => (
-                <li key={l.href + l.label}><a href={l.href}>{l.label}</a></li>
-              ))}
-            </ul>
-          </Col>
-          <Col>
-            <h4>{c.company.label}</h4>
-            <ul>
-              {c.company.links.map((l) => (
-                <li key={l.label}><a href={l.href}>{l.label}</a></li>
-              ))}
-            </ul>
-          </Col>
-          <Col>
-            <h4>{c.legal.label}</h4>
-            <ul>
-              {c.legal.links.map((l) => (
-                <li key={l.label}><a href={l.href}>{l.label}</a></li>
-              ))}
-            </ul>
-          </Col>
-        </Grid>
-        <Bottom>
-          <span>{c.copyright}</span>
-          <span style={{ fontFamily: 'var(--hand)', fontSize: 18, color: 'var(--terracotta-deep)' }}>
-            {c.tagline}
-          </span>
-        </Bottom>
-      </Wrap>
-    </Foot>
-  );
-}

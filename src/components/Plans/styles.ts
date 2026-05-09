@@ -1,15 +1,11 @@
-'use client';
-
 import styled from 'styled-components';
-import Reveal from './Reveal';
-import { Wrap, Section, SectionHead, Eyebrow } from './shared';
-import { plans as c } from '@/copy';
+import { Section } from '../shared';
 
-const Outer = styled(Section)`
+export const Outer = styled(Section)`
   background: linear-gradient(180deg, transparent, rgba(229, 219, 194, 0.5), transparent);
 `;
 
-const Grid = styled.div`
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
@@ -21,7 +17,7 @@ const Grid = styled.div`
   }
 `;
 
-const Card = styled.div<{ $featured?: boolean }>`
+export const Card = styled.div<{ $featured?: boolean }>`
   background: var(--paper-white);
   border-radius: 22px;
   padding: 38px 32px 36px;
@@ -42,7 +38,7 @@ const Card = styled.div<{ $featured?: boolean }>`
   }
 `;
 
-const Tag = styled.span<{ $variant?: 'value' }>`
+export const Tag = styled.span<{ $variant?: 'value' }>`
   position: absolute;
   top: -13px;
   left: 50%;
@@ -59,20 +55,20 @@ const Tag = styled.span<{ $variant?: 'value' }>`
     ${({ $variant }) => ($variant === 'value' ? 'rgba(44,90,107,.5)' : 'rgba(184,98,59,.6)')};
 `;
 
-const Name = styled.div`
+export const Name = styled.div`
   font-family: var(--serif);
   font-size: 24px;
   color: var(--ink);
   margin-bottom: 6px;
 `;
 
-const Desc = styled.div`
+export const Desc = styled.div`
   font-size: 14px;
   color: var(--ink-faint);
   margin-bottom: 24px;
 `;
 
-const Price = styled.div`
+export const Price = styled.div`
   display: flex;
   align-items: baseline;
   gap: 6px;
@@ -91,14 +87,14 @@ const Price = styled.div`
   }
 `;
 
-const Billed = styled.div`
+export const Billed = styled.div`
   margin-bottom: 28px;
   font-family: var(--hand);
   font-size: 18px;
   color: var(--ink-faint);
 `;
 
-const Savings = styled.div`
+export const Savings = styled.div`
   font-family: var(--hand);
   color: var(--ocean-deep);
   font-size: 18px;
@@ -107,7 +103,7 @@ const Savings = styled.div`
   text-align: center;
 `;
 
-const Features = styled.ul`
+export const Features = styled.ul`
   list-style: none;
   margin-bottom: 28px;
   flex: 1;
@@ -131,7 +127,7 @@ const Features = styled.ul`
   }
 `;
 
-const CtaPrimary = styled.a`
+export const CtaPrimary = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -149,7 +145,7 @@ const CtaPrimary = styled.a`
   }
 `;
 
-const CtaGhost = styled.a`
+export const CtaGhost = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -166,50 +162,3 @@ const CtaGhost = styled.a`
     background: rgba(31, 53, 64, 0.04);
   }
 `;
-
-
-export default function Plans() {
-  return (
-    <Outer id="plans">
-      <Wrap>
-        <Reveal>
-          <SectionHead>
-            <Eyebrow>{c.eyebrow}</Eyebrow>
-            <h2>{c.h2}</h2>
-            <p>{c.p}</p>
-          </SectionHead>
-        </Reveal>
-
-        <Grid>
-          {c.items.map((p, i) => (
-            <Reveal key={i}>
-              <Card $featured={p.featured}>
-                {p.tag && <Tag $variant={p.tagVariant}>{p.tag}</Tag>}
-                <Name>{p.name}</Name>
-                <Desc>{p.desc}</Desc>
-                <Price>
-                  <span className="amount">{p.price}</span>
-                  <span className="period">{p.period}</span>
-                </Price>
-                <Billed>…that's {p.daily}</Billed>
-                {p.savings && <Savings>{p.savings}</Savings>}
-                <Features>
-                  {p.features.map((f, j) => (
-                    <li key={j}>
-                      <i className="fa-solid fa-check" /> {f}
-                    </li>
-                  ))}
-                </Features>
-                {p.featured ? (
-                  <CtaPrimary href="/sukces">Choose {p.name}</CtaPrimary>
-                ) : (
-                  <CtaGhost href="/sukces">Choose {p.name}</CtaGhost>
-                )}
-              </Card>
-            </Reveal>
-          ))}
-        </Grid>
-      </Wrap>
-    </Outer>
-  );
-}

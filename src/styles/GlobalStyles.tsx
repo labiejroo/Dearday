@@ -24,7 +24,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   *{ box-sizing:border-box; margin:0; padding:0 }
-  html{ scroll-behavior:smooth }
+  html{ scroll-behavior:smooth; overflow-x:hidden }
   body{
     font-family: var(--sans);
     font-weight:400;

@@ -1,17 +1,11 @@
-'use client';
-
-import { useState } from 'react';
 import styled from 'styled-components';
-import { Wrap, Section, SectionHead, Eyebrow } from './shared';
-import { PaintedPalm } from './Painted';
-import { faq as c } from '@/copy';
 
-const FaqBox = styled.div`
+export const FaqBox = styled.div`
   max-width: 760px;
   margin: 0 auto;
 `;
 
-const Item = styled.div<{ $open: boolean }>`
+export const Item = styled.div<{ $open: boolean }>`
   border-bottom: 1px solid rgba(31, 53, 64, 0.1);
   &:first-child {
     border-top: 1px solid rgba(31, 53, 64, 0.1);
@@ -60,45 +54,3 @@ const Item = styled.div<{ $open: boolean }>`
     max-width: 640px;
   }
 `;
-
-
-export default function FAQ() {
-  const [open, setOpen] = useState(0);
-  return (
-    <Section id="faq" style={{ paddingTop: 60 }}>
-      <PaintedPalm
-        className="painted"
-        style={{
-          top: 30,
-          right: -50,
-          width: 240,
-          height: 240,
-          transform: 'rotate(35deg) scaleX(-1)',
-          opacity: 0.28,
-        }}
-      />
-      <Wrap>
-        <SectionHead>
-          <Eyebrow>{c.eyebrow}</Eyebrow>
-          <h2>{c.h2}</h2>
-        </SectionHead>
-
-        <FaqBox>
-          {c.items.map((it, i) => (
-            <Item key={i} $open={open === i}>
-              <button className="q" onClick={() => setOpen(open === i ? -1 : i)}>
-                <span>{it.q}</span>
-                <span className="icon">
-                  <i className="fa-solid fa-plus" />
-                </span>
-              </button>
-              <div className="a">
-                <div className="a-inner">{it.a}</div>
-              </div>
-            </Item>
-          ))}
-        </FaqBox>
-      </Wrap>
-    </Section>
-  );
-}

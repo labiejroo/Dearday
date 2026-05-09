@@ -1,11 +1,6 @@
-'use client';
-
 import styled from 'styled-components';
-import Reveal from './Reveal';
-import { Wrap, Section, Eyebrow } from './shared';
-import { delivery as c } from '@/copy';
 
-const Grid = styled.div`
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
@@ -15,7 +10,7 @@ const Grid = styled.div`
   }
 `;
 
-const Channels = styled.div`
+export const Channels = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
@@ -25,7 +20,7 @@ const Channels = styled.div`
   }
 `;
 
-const Channel = styled.div<{ $variant?: 'email' }>`
+export const Channel = styled.div<{ $variant?: 'email' }>`
   background: var(--paper-white);
   border-radius: 14px;
   padding: 28px 22px;
@@ -61,7 +56,7 @@ const Channel = styled.div<{ $variant?: 'email' }>`
   }
 `;
 
-const Preview = styled.div`
+export const Preview = styled.div`
   position: relative;
   width: 100%;
   aspect-ratio: 9 / 11;
@@ -69,7 +64,7 @@ const Preview = styled.div`
   margin: 0 auto;
 `;
 
-const Phone = styled.div`
+export const Phone = styled.div`
   background: var(--paper-white);
   padding: 60px 22px 28px;
   height: 100%;
@@ -91,7 +86,7 @@ const Phone = styled.div`
   }
 `;
 
-const Bubble = styled.div<{ $alt?: boolean }>`
+export const Bubble = styled.div<{ $alt?: boolean }>`
   background: ${({ $alt }) =>
     $alt ? 'linear-gradient(135deg, #E4ECEF, #CADBE0)' : 'linear-gradient(135deg, #FAEEE2, #F4D9C0)'};
   padding: 18px 18px 20px;
@@ -130,68 +125,3 @@ const Bubble = styled.div<{ $alt?: boolean }>`
     padding: 3px 0;
   }
 `;
-
-export default function Delivery() {
-  return (
-    <Section id="delivery" style={{ paddingTop: 40 }}>
-      <Wrap>
-        <Grid>
-          <Reveal>
-            <Eyebrow>{c.eyebrow}</Eyebrow>
-            <h2 style={{ marginTop: 8 }}>{c.h2}</h2>
-            <p style={{ color: 'var(--ink-soft)', marginTop: 18, fontSize: 17 }}>
-              {c.pBefore}{' '}
-              <strong style={{ fontWeight: 600 }}>{c.pHighlight}</strong>
-              {c.pAfter}
-            </p>
-            <Channels>
-              {c.channels.map((ch) => (
-                <Channel key={ch.h4} $variant={ch.variant}>
-                  <i className={ch.icon} />
-                  <h4>{ch.h4}</h4>
-                  <p>{ch.p}</p>
-                </Channel>
-              ))}
-            </Channels>
-            <p
-              style={{
-                marginTop: 24,
-                color: 'var(--ink-faint)',
-                fontFamily: 'var(--hand)',
-                fontSize: 20,
-              }}
-            >
-              {c.switchNote}
-            </p>
-          </Reveal>
-
-          <Reveal>
-            <Preview>
-              <Phone>
-                <Bubble>
-                  <div className="from">
-                    <span>Dearday</span>
-                    <span className="time">{c.phone.bubble1.time}</span>
-                  </div>
-                  <p className="aff">{c.phone.bubble1.aff}</p>
-                  <ol>
-                    {c.phone.bubble1.qs.map((q, i) => <li key={i}>{q}</li>)}
-                  </ol>
-                </Bubble>
-                <Bubble $alt>
-                  <div className="from">
-                    <span>Dearday</span>
-                    <span className="time">{c.phone.bubble2.time}</span>
-                  </div>
-                  <p className="aff" style={{ marginBottom: 0 }}>
-                    {c.phone.bubble2.aff}
-                  </p>
-                </Bubble>
-              </Phone>
-            </Preview>
-          </Reveal>
-        </Grid>
-      </Wrap>
-    </Section>
-  );
-}

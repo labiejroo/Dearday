@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Recurse \"c:\\\\Users\\\\pawel\\\\Documents\\\\Daily afirmation\\\\dearday-next\\\\src\\\\components\\\\\")",
+      "PowerShell(Get-ChildItem -Recurse \"c:\\\\Users\\\\pawel\\\\Documents\\\\Daily afirmation\\\\dearday-next\\\\src\\\\components\\\\\" | Select-Object FullName, @{Name=\"Type\";Expression={if\\($_.PSIsContainer\\){\"DIR\"}else{\"FILE\"}}} | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\pawel\\\\Documents\\\\Daily afirmation\\\\dearday-next\\\\src\\\\components\" -Recurse | Where-Object { !$_.PSIsContainer } | Select-Object FullName | Sort-Object FullName)"
+    ]
+  }
+}

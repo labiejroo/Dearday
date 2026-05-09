@@ -61,7 +61,7 @@ export const BtnPrimary = styled.a`
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 8px 22px -10px rgba(31, 53, 64, 0.6);
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 14px 30px -10px rgba(31, 53, 64, 0.7);
+    box-shadow: 0 2px 4px var(--paper), 0 14px 30px -10px rgba(31, 53, 64, 0.7);
   }
 `;
 

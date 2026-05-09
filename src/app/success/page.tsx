@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import { PaintedSun, PaintedPalm } from '@/components/Painted';
-import { success as c } from '@/copy';
+import { success as copy } from '@/copy';
 
 const Outer = styled.main`
   min-height: 100vh;
@@ -85,14 +85,14 @@ export default function SukcesPage() {
         }}
       />
       <Card>
-        <p className="hand">{c.tagline}</p>
+        <p className="hand">{copy.tagline}</p>
         <h1>
-          {c.h1Before} <span style={{ fontStyle: 'italic', color: 'var(--terracotta-deep)' }}>{c.h1Accent}</span>
+          {copy.h1Before} <span style={{ fontStyle: 'italic', color: 'var(--terracotta-deep)' }}>{copy.h1Accent}</span>
         </h1>
-        <p>{c.p1}</p>
-        <p style={{ fontSize: 15 }}>{c.p2}</p>
+        <p>{copy.p1}</p>
+        <p style={{ fontSize: 15 }}>{copy.p2}</p>
         <Back href="/">
-          <i className="fa-solid fa-arrow-left" /> {c.back}
+          <i className="fa-solid fa-arrow-left" /> {copy.back}
         </Back>
       </Card>
     </Outer>

@@ -74,9 +74,5 @@ netlify deploy --build
 - `npm run lint` — ESLint
 - `npm run format` — Prettier
 
-## Następne kroki
-
-- Podpiąć formularz zapisu pod backend (Supabase / Stripe / własne API).
-- Dodać CMS dla afirmacji (np. Sanity, Notion API, MDX).
-- Wdrożyć integracje: Twilio (SMS), Resend / Postmark (email).
-- Dodać `/regulamin`, `/polityka-prywatnosci`, `/kontakt`.
+'use client'
+Styled-components używa React Context i API przeglądarki w czasie renderowania, więc każdy plik który importuje styled musi być komponentem klienckim. Gdybym używał CSS Modules lub Tailwind, większość komponentów mogłaby być Server Components co dawałoby nam SSR ale dla takiego landingu testowego nie ma to sensu.

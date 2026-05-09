@@ -174,7 +174,8 @@ export const plans = {
     {
       name: 'Weekly',
       desc: 'Try the practice with no strings attached',
-      price: '19',
+      offerId: 'S650103744_PL',
+      price: '€19',
       period: '/ week',
       daily: '~ per day',
       features: [
@@ -190,6 +191,7 @@ export const plans = {
       tag: 'Most popular',
       name: 'Monthly',
       desc: 'Long enough to feel the difference',
+      offerId: 'S650103744_PL',
       price: '€59',
       period: '/ month',
       daily: '~ per day',
@@ -208,7 +210,8 @@ export const plans = {
       tag: 'Best value',
       name: 'Annual',
       desc: '365 days of daily practice',
-      price: '499',
+      offerId: 'S650103744_PL',
+      price: '€499',
       period: '/ year',
       daily: '~ per day',
       savings: '~ save up to 49% ~',
